@@ -34,9 +34,14 @@
     </style>
 </head>
 <body>
-    <section class="section hero">
-        <div class="big-date">16.<br>10.<br>26</div>
-        <div class="sliding-names">Արմեն &<br>Մանան</div>
+    <section class="section hero" style="display: flex; flex-direction: column; justify-content: space-around; align-items: flex-start; padding-left: 30px;">
+        <div class="big-date" style="position: relative; top: 0; left: 0; opacity: 1; animation: fadeIn 1s forwards;">
+            16.<br>10.<br>26
+        </div>
+        
+        <div class="sliding-names" style="position: relative; right: 0; top: 0; font-family: 'Dancing Script', cursive; font-size: 3.5rem; animation: slideToDate 2s forwards ease-in-out; text-align: left; margin-top: 20px;">
+            Արմեն &<br>Մանան
+        </div>
     </section>
 
     <div class="music-area">
@@ -49,8 +54,8 @@
         <h2 class="main-title">Սիրե՜լի Հարազատներ</h2>
         <p class="fade-p">Հրավիրում ենք ձեզ մեր կյանքի ամենասպասված միջոցառմանը` մեր հարսանիքին:</p>
         
-        <div style="margin-top: 70px;">
-            <h3 style="font-size: 2rem; font-weight: 400;">Մնաց...</h3>
+        <div style="margin-top: 50px;">
+            <h3 style="font-size: 1.8rem; font-weight: 400;">Մնաց...</h3>
             <div class="timer-grid">
                 <div class="t-item"><span class="t-val" id="days">00</span><span class="t-unit">Օր</span></div>
                 <div class="t-item"><span class="t-val" id="hours">00</span><span class="t-unit">Ժամ</span></div>
@@ -60,6 +65,27 @@
         </div>
     </section>
 
+    <section class="section">
+        <div class="calendar-row" data-aos="fade-up" style="display: flex; align-items: center; justify-content: center; gap: 15px; font-size: 1.8rem; font-weight: 300; color: #ccc; margin-bottom: 40px;">
+            <span>14</span><span>15</span>
+            <div style="position: relative; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; color: #fff;">
+                <svg viewBox="0 0 32 32" style="position: absolute; width: 100%; fill: #000;"><path d="M16 28.5L14.1 26.8C7.3 20.6 2.8 16.5 2.8 11.5 2.8 7.4 6 4.2 10.1 4.2 12.4 4.2 14.6 5.3 16 7.1 17.4 5.3 19.6 4.2 21.9 4.2 26 4.2 29.2 7.4 29.2 11.5 29.2 16.5 24.7 20.6 17.9 26.8L16 28.5Z"/></svg>
+                <b style="position: relative; z-index: 2; font-size: 2.2rem;">16</b>
+            </div>
+            <span>17</span><span>18</span>
+        </div>
+
+        <div id="rBox" style="position: relative; width: 100%; max-width: 360px; height: 900px; margin: 50px auto;">
+            <i class="fas fa-map-marker-alt" id="pin" style="position: absolute; width: 40px; font-size: 2.2rem; z-index: 10; color: #000;"></i>
+            <svg viewBox="0 0 360 900" style="width:100%; height:100%;">
+                <path id="pathLine" d="M180,0 C340,160 340,320 180,450 C20,580 20,740 180,900" fill="none" stroke="#f0f0f0" stroke-width="3" stroke-dasharray="10,10"/>
+            </svg>
+            <div style="position: absolute; width: 130px; font-size: 1.1rem; top: 100px; left: 0; text-align: right;" data-aos="fade-right"><b>11:00</b><br>Փեսայի տուն</div>
+            <div style="position: absolute; width: 130px; font-size: 1.1rem; top: 320px; right: 0; text-align: left;" data-aos="fade-left"><b>12:00</b><br>Հարսի տուն</div>
+            <div style="position: absolute; width: 130px; font-size: 1.1rem; top: 540px; left: 0; text-align: right;" data-aos="fade-right"><b>14:00</b><br>Եկեղեցի</div>
+            <div style="position: absolute; width: 130px; font-size: 1.1rem; top: 760px; right: 0; text-align: left;" data-aos="fade-left"><b>17:30</b><br>Ռեստորան</div>
+        </div>
+    </section>
     <section class="section">
         <div class="calendar-row" data-aos="fade-up" style="display: flex; align-items: center; justify-content: center; gap: 15px; font-size: 1.8rem; font-weight: 300; color: #ccc; margin-bottom: 40px;">
             <span>14</span><span>15</span>
