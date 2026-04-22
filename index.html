@@ -12,31 +12,44 @@
         body, html { margin: 0; padding: 0; font-family: 'Noto Sans Armenian', sans-serif; background: #fff; color: #000; overflow-x: hidden; width: 100%; scroll-behavior: smooth; }
         .section { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; box-sizing: border-box; width: 100%; position: relative; }
         
-        .hero { background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('couple1.jpg'); background-size: cover; background-position: center; color: white; height: 100vh; position: relative; overflow: hidden; }
+        .hero { 
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('couple1.jpg'); 
+            background-size: cover; background-position: center; height: 100vh; 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; color: white;
+        }
         
-        .big-date { position: absolute; left: -200px; top: 35%; font-size: 5rem; font-weight: 800; line-height: 0.9; text-align: left; animation: dateIn 1.5s forwards ease-out; }
-        .sliding-names { position: absolute; right: -400px; top: 40%; font-family: 'Dancing Script', cursive; font-size: 3.5rem; text-align: right; animation: namesIn 1.5s forwards ease-out; text-shadow: 2px 2px 20px rgba(0,0,0,0.7); }
+        .hero-content { display: flex; align-items: center; justify-content: space-between; width: 90%; max-width: 400px; }
 
-        @keyframes dateIn { to { left: 40px; } }
-        @keyframes namesIn { to { right: 40px; } }
+        .big-date { 
+            font-size: 4.5rem; font-weight: 800; line-height: 0.9; text-align: left; 
+            transform: translateX(-150%); animation: dateIn 1.2s forwards ease-out;
+        }
 
-        .music-area { padding: 50px 0; background: #fff; text-align: center; }
-        .m-btn { width: 65px; height: 65px; border-radius: 50%; border: 2.5px solid #000; background: #fff; color: #000; font-size: 1.4rem; cursor: pointer; display: flex; align-items: center; justify-content: center; margin: 0 auto; transition: 0.3s; }
-        .m-text { margin-top: 15px; font-weight: 700; font-size: 1rem; letter-spacing: 1px; text-transform: uppercase; }
+        .sliding-names { 
+            font-family: 'Dancing Script', cursive; font-size: 3rem; text-align: right; 
+            transform: translateX(150%); animation: namesIn 1.2s forwards ease-out;
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.5);
+        }
 
-        .main-title { font-size: 2.8rem; font-weight: 700; margin-bottom: 25px; }
-        .fade-p { font-size: 1.5rem; font-weight: 500; line-height: 1.6; max-width: 350px; margin: 0 auto; }
-        
-        .timer-grid { display: flex; gap: 12px; justify-content: center; margin-top: 40px; }
-        .t-item { background: #fafafa; padding: 20px 5px; border-radius: 20px; flex: 1; max-width: 85px; border: 1px solid #eee; }
-        .t-val { font-size: 2.3rem; font-weight: 800; display: block; }
-        .t-unit { font-size: 0.8rem; font-weight: 700; color: #888; }
+        @keyframes dateIn { to { transform: translateX(0); } }
+        @keyframes namesIn { to { transform: translateX(0); } }
+
+        .music-area { padding: 40px 0; text-align: center; }
+        .m-btn { width: 60px; height: 60px; border-radius: 50%; border: 2px solid #000; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; margin: 0 auto; }
+        .m-text { margin-top: 10px; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; }
+
+        .timer-grid { display: flex; gap: 8px; justify-content: center; margin-top: 30px; }
+        .t-item { background: #f9f9f9; padding: 15px 5px; border-radius: 15px; flex: 1; border: 1px solid #eee; }
+        .t-val { font-size: 1.8rem; font-weight: 800; display: block; }
+        .t-unit { font-size: 0.7rem; color: #888; }
     </style>
 </head>
 <body>
     <section class="section hero">
-        <div class="big-date">16.<br>10.<br>26</div>
-        <div class="sliding-names">Արմեն &<br>Մանան</div>
+        <div class="hero-content">
+            <div class="big-date">16.<br>10.<br>26</div>
+            <div class="sliding-names">Արմեն &<br>Մանան</div>
+        </div>
     </section>
 
     <div class="music-area">
@@ -46,74 +59,53 @@
     </div>
 
     <section class="section" data-aos="fade-up">
-        <h2 class="main-title">Սիրե՜լի Հարազատներ</h2>
-        <p class="fade-p">Հրավիրում ենք ձեզ մեր կյանքի ամենասպասված միջոցառմանը` մեր հարսանիքին:</p>
+        <h2 style="font-size: 2.2rem; font-weight: 700;">Սիրե՜լի Հարազատներ</h2>
+        <p style="font-size: 1.2rem; color: #444;">Հրավիրում ենք ձեզ ամենասպասված օրվան՝մեր հարսանիքին</p>
         
-        <div style="margin-top: 70px;">
-            <h3 style="font-size: 2rem; font-weight: 400;">Մնաց...</h3>
-            <div class="timer-grid">
-                <div class="t-item"><span class="t-val" id="days">00</span><span class="t-unit">Օր</span></div>
-                <div class="t-item"><span class="t-val" id="hours">00</span><span class="t-unit">Ժամ</span></div>
-                <div class="t-item"><span class="t-val" id="mins">00</span><span class="t-unit">Րոպե</span></div>
-                <div class="t-item"><span class="t-val" id="secs">00</span><span class="t-unit">Վայրկյան</span></div>
-            </div>
+        <div class="timer-grid">
+            <div class="t-item"><span class="t-val" id="days">00</span><span class="t-unit">ՕՐ</span></div>
+            <div class="t-item"><span class="t-val" id="hours">00</span><span class="t-unit">ԺԱՄ</span></div>
+            <div class="t-item"><span class="t-val" id="mins">00</span><span class="t-unit">ՐՈՊԵ</span></div>
+            <div class="t-item"><span class="t-val" id="secs">00</span><span class="t-unit">ՎՐԿ.</span></div>
         </div>
     </section>
- <section class="section">
-        <div class="calendar-row" data-aos="fade-up" style="display: flex; align-items: center; justify-content: center; gap: 15px; font-size: 1.8rem; font-weight: 300; color: #ccc; margin-bottom: 40px;">
-            <span>14</span><span>15</span>
-            <div style="position: relative; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; color: #fff;">
-                <svg viewBox="0 0 32 32" style="position: absolute; width: 100%; fill: #000;"><path d="M16 28.5L14.1 26.8C7.3 20.6 2.8 16.5 2.8 11.5 2.8 7.4 6 4.2 10.1 4.2 12.4 4.2 14.6 5.3 16 7.1 17.4 5.3 19.6 4.2 21.9 4.2 26 4.2 29.2 7.4 29.2 11.5 29.2 16.5 24.7 20.6 17.9 26.8L16 28.5Z"/></svg>
-                <b style="position: relative; z-index: 2; font-size: 2.2rem;">16</b>
-            </div>
-            <span>17</span><span>18</span>
-        </div>
-
-        <div id="rBox" style="position: relative; width: 100%; max-width: 360px; height: 900px; margin: 50px auto;">
-            <i class="fas fa-map-marker-alt" id="pin" style="position: absolute; width: 40px; font-size: 2.2rem; z-index: 10; color: #000;"></i>
-            <svg viewBox="0 0 360 900" style="width:100%; height:100%;">
-                <path id="pathLine" d="M180,0 C340,160 340,320 180,450 C20,580 20,740 180,900" fill="none" stroke="#f0f0f0" stroke-width="3" stroke-dasharray="10,10"/>
+<section class="section">
+        <div id="rBox" style="position: relative; width: 100%; max-width: 360px; height: 800px; margin: 0 auto;">
+            <i class="fas fa-map-marker-alt" id="pin" style="position: absolute; font-size: 2rem; z-index: 10; color: #000;"></i>
+            <svg viewBox="0 0 360 800" style="width:100%; height:100%;">
+                <path id="pathLine" d="M180,0 C340,150 340,300 180,400 C20,500 20,650 180,800" fill="none" stroke="#f0f0f0" stroke-width="2" stroke-dasharray="8,8"/>
             </svg>
-            <div style="position: absolute; width: 130px; font-size: 1.1rem; top: 100px; left: 0; text-align: right;" data-aos="fade-right"><b>11:00</b><br>Փեսայի տուն</div>
-            <div style="position: absolute; width: 130px; font-size: 1.1rem; top: 320px; right: 0; text-align: left;" data-aos="fade-left"><b>12:00</b><br>Հարսի տուն</div>
-            <div style="position: absolute; width: 130px; font-size: 1.1rem; top: 540px; left: 0; text-align: right;" data-aos="fade-right"><b>14:00</b><br>Եկեղեցի</div>
-            <div style="position: absolute; width: 130px; font-size: 1.1rem; top: 760px; right: 0; text-align: left;" data-aos="fade-left"><b>17:30</b><br>Ռեստորան</div>
+            <div style="position: absolute; top: 80px; left: 10px; text-align: right; width: 120px;"><b>11:00</b><br>Փեսայի տուն</div>
+            <div style="position: absolute; top: 280px; right: 10px; text-align: left; width: 120px;"><b>12:00</b><br>Հարսի տուն</div>
+            <div style="position: absolute; top: 480px; left: 10px; text-align: right; width: 120px;"><b>14:00</b><br>Եկեղեցի</div>
+            <div style="position: absolute; top: 680px; right: 10px; text-align: left; width: 120px;"><b>17:30</b><br>Ռեստորան</div>
         </div>
     </section>
 
     <section class="section">
-        <h2 class="main-title" data-aos="fade-up">Հասցեներ</h2>
-        <div style="width: 100%; max-width: 450px; margin-bottom: 60px;" data-aos="zoom-in">
-            <h3 style="font-size: 2.2rem; margin-bottom: 15px;">Եկեղեցի</h3>
-            <img src="church.jpg" style="width: 100%; border-radius: 30px;">
-            <p style="font-size: 1.4rem; margin-top: 20px;">Սբ. Աննա Եկեղեցի</p>
-            <a href="https://maps.google.com" style="display: inline-block; padding: 18px 60px; background: #000; color: #fff; text-decoration: none; border-radius: 50px; font-weight: 700;">ՔԱՐՏԵԶ</a>
-        </div>
-        <div style="width: 100%; max-width: 450px; margin-bottom: 60px;" data-aos="zoom-in">
-            <h3 style="font-size: 2.2rem; margin-bottom: 15px;">Ռեստորան</h3>
-            <img src="restaurant.jpg" style="width: 100%; border-radius: 30px;">
-            <p style="font-size: 1.4rem; margin-top: 20px;">Nor Dvin Ռեստորան</p>
-            <a href="https://maps.google.com" style="display: inline-block; padding: 18px 60px; background: #000; color: #fff; text-decoration: none; border-radius: 50px; font-weight: 700;">ՔԱՐՏԵԶ</a>
-        </div>
-    </section>
-
-    <section class="section">
-        <div style="background: #fff; padding: 45px 25px; border-radius: 35px; border: 1.5px solid #f0f0f0; width: 92%; max-width: 420px; box-shadow: 0 15px 50px rgba(0,0,0,0.05);" data-aos="fade-up">
-            <h2 style="font-family: 'Dancing Script', cursive; font-size: 4.5rem; margin-bottom: 10px;">RSVP</h2>
-            <form style="display: flex; flex-direction: column;">
-                <input type="text" placeholder="Անուն Ազգանուն" required style="padding: 20px; margin: 12px 0; border: 1.5px solid #eee; border-radius: 15px; font-size: 1.1rem;">
-                <select required style="padding: 20px; margin: 12px 0; border: 1.5px solid #eee; border-radius: 15px; font-size: 1.1rem;">
+        <div class="rsvp-container" data-aos="fade-up" style="background:#fff; padding:30px; border-radius:30px; width:100%; max-width:380px; box-shadow:0 10px 40px rgba(0,0,0,0.05); border:1px solid #f0f0f0;">
+            <h2 style="font-family:'Dancing Script', cursive; font-size:4rem;">RSVP</h2>
+            <p style="margin-bottom:20px;">Խնդրում ենք հաստատել ձեր մասնակցությունը</p>
+            <form id="rsvpForm">
+                <input type="text" placeholder="Անուն Ազգանուն" required style="width:100%; padding:15px; margin-bottom:10px; border-radius:15px; border:1px solid #eee; box-sizing:border-box;">
+                <select required style="width:100%; padding:15px; margin-bottom:10px; border-radius:15px; border:1px solid #eee;">
                     <option value="">Կմասնակցե՞ք</option>
-                    <option>Այո</option>
-                    <option>Ոչ</option>
+                    <option>Այո, կգամ</option>
+                    <option>Ոչ, չեմ կարող</option>
                 </select>
-                <button type="submit" style="padding: 18px; background: #000; color: #fff; border: none; border-radius: 50px; font-weight: 700; margin-top: 15px;">ՈՒՂԱՐԿԵԼ</button>
+                <div style="text-align:left; margin:10px 0;">Ու՞մ կողմից եք.</div>
+                <div style="display:flex; justify-content:space-around; margin-bottom:15px;">
+                    <label><input type="radio" name="side" value="groom"> Փեսայի</label>
+                    <label><input type="radio" name="side" value="bride"> Հարսի</label>
+                </div>
+                <input type="number" placeholder="Հյուրերի քանակ" style="width:100%; padding:15px; margin-bottom:15px; border-radius:15px; border:1px solid #eee; box-sizing:border-box;">
+                <button type="submit" style="width:100%; padding:18px; background:#000; color:#fff; border:none; border-radius:40px; font-weight:700;">ՈՒՂԱՐԿԵԼ</button>
             </form>
         </div>
     </section>
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1200, once: true });
+        AOS.init({ duration: 1000, once: true });
         
         function playM() {
             const t = document.getElementById('track'), i = document.getElementById('m-icon');
@@ -127,8 +119,8 @@
             let s = (window.innerHeight / 2 - r.top) / r.height;
             s = Math.max(0, Math.min(1, s));
             const len = l.getTotalLength(), pt = l.getPointAtLength(s * len);
-            p.style.left = (pt.x - 20) + 'px'; 
-            p.style.top = (pt.y - 35) + 'px';
+            p.style.left = (pt.x - 15) + 'px'; 
+            p.style.top = (pt.y - 30) + 'px';
         });
 
         const target = new Date("October 16, 2026 14:00:00").getTime();
@@ -141,4 +133,4 @@
         }, 1000);
     </script>
 </body>
-</html>  
+</html>
