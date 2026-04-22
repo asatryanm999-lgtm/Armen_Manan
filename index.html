@@ -3,45 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Արմեն & Մանան</title>
+    <title>Մեր Սիրո Պատմությունը</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Noto+Sans+Armenian:wght@100;400;700&display=swap');
-
-        body, html { margin: 0; padding: 0; font-family: 'Noto Sans Armenian', sans-serif; background: #fff; color: #000; overflow-x: hidden; width: 100%; scroll-behavior: smooth; }
-        .section { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; box-sizing: border-box; width: 100%; position: relative; }
+        body, html { margin: 0; padding: 0; font-family: 'Noto Sans Armenian', sans-serif; background: #fff; overflow-x: hidden; scroll-behavior: smooth; }
+        .section { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 60px 20px; box-sizing: border-box; }
         
         .hero { 
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('couple1.jpg'); 
-            background-size: cover; background-position: center; height: 100vh; 
-            display: flex; flex-direction: column; justify-content: center; align-items: center; color: white;
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('couple1.jpg'); 
+            background-size: cover; background-position: center; height: 100vh; display: flex; align-items: center; justify-content: center; color: white; 
         }
-        
         .hero-content { display: flex; align-items: center; justify-content: space-between; width: 90%; max-width: 400px; }
-
-        .big-date { 
-            font-size: 4.5rem; font-weight: 800; line-height: 0.9; text-align: left; 
-            transform: translateX(-150%); animation: dateIn 1.2s forwards ease-out;
-        }
-
-        .sliding-names { 
-            font-family: 'Dancing Script', cursive; font-size: 3rem; text-align: right; 
-            transform: translateX(150%); animation: namesIn 1.2s forwards ease-out;
-            text-shadow: 2px 2px 15px rgba(0,0,0,0.5);
-        }
-
+        .big-date { font-size: 4.8rem; font-weight: 800; line-height: 0.85; text-align: left; transform: translateX(-150%); animation: dateIn 1.3s forwards cubic-bezier(0.17, 0.67, 0.83, 0.67); }
+        .sliding-names { font-family: 'Dancing Script', cursive; font-size: 3.5rem; text-align: right; transform: translateX(150%); animation: namesIn 1.3s forwards cubic-bezier(0.17, 0.67, 0.83, 0.67); text-shadow: 2px 2px 25px rgba(0,0,0,0.6); }
+        
         @keyframes dateIn { to { transform: translateX(0); } }
         @keyframes namesIn { to { transform: translateX(0); } }
 
-        .music-area { padding: 40px 0; text-align: center; }
-        .m-btn { width: 60px; height: 60px; border-radius: 50%; border: 2px solid #000; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; margin: 0 auto; }
-        .m-text { margin-top: 10px; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; }
+        .m-btn { width: 70px; height: 70px; border-radius: 50%; border: 2px solid #000; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; margin: 40px auto; transition: 0.3s; }
+        .m-btn:hover { background: #f0f0f0; }
 
-        .timer-grid { display: flex; gap: 8px; justify-content: center; margin-top: 30px; }
-        .t-item { background: #f9f9f9; padding: 15px 5px; border-radius: 15px; flex: 1; border: 1px solid #eee; }
-        .t-val { font-size: 1.8rem; font-weight: 800; display: block; }
-        .t-unit { font-size: 0.7rem; color: #888; }
+        .timer-grid { display: flex; gap: 10px; justify-content: center; margin-top: 40px; }
+        .t-item { background: #fafafa; padding: 20px 5px; border-radius: 20px; flex: 1; border: 1px solid #eee; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
+        .t-val { font-size: 2.2rem; font-weight: 800; display: block; color: #000; }
+        .t-unit { font-size: 0.8rem; font-weight: 700; color: #999; text-transform: uppercase; }
+
+        .dress-code-card { background: #f9f9f9; padding: 50px 25px; border-radius: 35px; width: 100%; max-width: 420px; border: 1px solid #f0f0f0; margin-top: 30px; }
+        .circle-group { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
+        .circle { width: 45px; height: 45px; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
     </style>
 </head>
 <body>
@@ -52,61 +43,89 @@
         </div>
     </section>
 
-    <div class="music-area">
+    <div style="text-align: center; background: #fff;">
         <button class="m-btn" onclick="playM()"><i class="fas fa-play" id="m-icon"></i></button>
-        <p class="m-text">Միացնել երաժշտությունը</p>
+        <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; font-weight: 700;">Միացրեք երաժշտությունը</p>
         <audio id="track" src="music.mp3" loop></audio>
     </div>
 
     <section class="section" data-aos="fade-up">
-        <h2 style="font-size: 2.2rem; font-weight: 700;">Սիրե՜լի Հարազատներ</h2>
-        <p style="font-size: 1.2rem; color: #444;">Հրավիրում ենք ձեզ ամենասպասված օրվան՝մեր հարսանիքին</p>
-        
+        <h2 style="font-size: 2.5rem; font-weight: 700; color: #000; margin-bottom: 25px;">Սիրե՜լի Հարազատներ</h2>
+        <p style="font-size: 1.4rem; line-height: 1.6; max-width: 350px; color: #333;">
+            Այս երջանիկ օրը մենք որոշել ենք միավորել մեր սրտերն ու ճակատագրերը։ Ձեր ներկայությունը մեր կյանքի ամենակարևոր օրը կդարձնի այն էլ ավելի ջերմ և անմոռանալի։ <br><br>
+            Սիրով հրավիրում ենք ձեզ կիսելու մեր մեծ երջանկությունը։
+        </p>
+
+        <div class="calendar-row" style="display: flex; align-items: center; justify-content: center; gap: 20px; font-size: 2rem; color: #ddd; margin: 50px 0;">
+            <span>14</span><span>15</span>
+            <div style="position: relative; width: 90px; height: 90px; display: flex; align-items: center; justify-content: center; color: #fff;">
+                <svg viewBox="0 0 32 32" style="position: absolute; width: 100%; fill: #000;"><path d="M16 28.5L14.1 26.8C7.3 20.6 2.8 16.5 2.8 11.5 2.8 7.4 6 4.2 10.1 4.2 12.4 4.2 14.6 5.3 16 7.1 17.4 5.3 19.6 4.2 21.9 4.2 26 4.2 29.2 7.4 29.2 11.5 29.2 16.5 24.7 20.6 17.9 26.8L16 28.5Z"/></svg>
+                <b style="position: relative; z-index: 2; font-size: 2.5rem; margin-bottom: 5px;">16</b>
+            </div>
+            <span>17</span><span>18</span>
+        </div>
+
         <div class="timer-grid">
-            <div class="t-item"><span class="t-val" id="days">00</span><span class="t-unit">ՕՐ</span></div>
-            <div class="t-item"><span class="t-val" id="hours">00</span><span class="t-unit">ԺԱՄ</span></div>
-            <div class="t-item"><span class="t-val" id="mins">00</span><span class="t-unit">ՐՈՊԵ</span></div>
-            <div class="t-item"><span class="t-val" id="secs">00</span><span class="t-unit">ՎՐԿ.</span></div>
+            <div class="t-item"><span class="t-val" id="days">00</span><span class="t-unit">Օր</span></div>
+            <div class="t-item"><span class="t-val" id="hours">00</span><span class="t-unit">Ժամ</span></div>
+            <div class="t-item"><span class="t-val" id="mins">00</span><span class="t-unit">Րոպե</span></div>
+            <div class="t-item"><span class="t-val" id="secs">00</span><span class="t-unit">Վրկ.</span></div>
         </div>
     </section>
-<section class="section">
-        <div id="rBox" style="position: relative; width: 100%; max-width: 360px; height: 800px; margin: 0 auto;">
-            <i class="fas fa-map-marker-alt" id="pin" style="position: absolute; font-size: 2rem; z-index: 10; color: #000;"></i>
-            <svg viewBox="0 0 360 800" style="width:100%; height:100%;">
-                <path id="pathLine" d="M180,0 C340,150 340,300 180,400 C20,500 20,650 180,800" fill="none" stroke="#f0f0f0" stroke-width="2" stroke-dasharray="8,8"/>
+    <section class="section">
+        <div id="rBox" style="position: relative; width: 100%; max-width: 360px; height: 850px; margin: 0 auto;">
+            <i class="fas fa-map-marker-alt" id="pin" style="position: absolute; font-size: 2.2rem; color: #000; z-index: 10;"></i>
+            <svg viewBox="0 0 360 850" style="width:100%; height:100%;">
+                <path id="pathLine" d="M180,0 C340,160 340,320 180,425 C20,550 20,720 180,850" fill="none" stroke="#f0f0f0" stroke-width="3" stroke-dasharray="10,10"/>
             </svg>
-            <div style="position: absolute; top: 80px; left: 10px; text-align: right; width: 120px;"><b>11:00</b><br>Փեսայի տուն</div>
-            <div style="position: absolute; top: 280px; right: 10px; text-align: left; width: 120px;"><b>12:00</b><br>Հարսի տուն</div>
-            <div style="position: absolute; top: 480px; left: 10px; text-align: right; width: 120px;"><b>14:00</b><br>Եկեղեցի</div>
-            <div style="position: absolute; top: 680px; right: 10px; text-align: left; width: 120px;"><b>17:30</b><br>Ռեստորան</div>
+            <div style="position: absolute; top: 100px; left: 0; text-align: right; width: 130px;" data-aos="fade-right"><b>11:00</b><br>Փեսայի տուն</div>
+            <div style="position: absolute; top: 310px; right: 0; text-align: left; width: 130px;" data-aos="fade-left"><b>12:00</b><br>Հարսի տուն</div>
+            <div style="position: absolute; top: 520px; left: 0; text-align: right; width: 130px;" data-aos="fade-right"><b>14:00</b><br>Եկեղեցական արարողություն</div>
+            <div style="position: absolute; top: 730px; right: 0; text-align: left; width: 130px;" data-aos="fade-left"><b>17:30</b><br>Հարսանեկան խնջույք</div>
+        </div>
+    </section>
+
+    <section class="section" data-aos="fade-up">
+        <div class="dress-code-card">
+            <h2 style="font-size: 2.2rem; margin-bottom: 15px;">Dress Code</h2>
+            <p style="font-size: 1.1rem; color: #555; line-height: 1.6;">
+                Մեզ համար շատ կարևոր է մեր տոնի գեղեցկությունը։ Խնդրում ենք լինել երեկոյան հագուստով և հետևել նախընտրելի գույներին.
+            </p>
+            <div class="circle-group">
+                <div class="circle" style="background: #000;"></div>
+                <div class="circle" style="background: #2C3E50;"></div>
+                <div class="circle" style="background: #7F8C8D;"></div>
+                <div class="circle" style="background: #BDC3C7;"></div>
+            </div>
+            <p style="margin-top: 25px; font-weight: 700; color: #888;">Շնորհակալ ենք</p>
         </div>
     </section>
 
     <section class="section">
-        <div class="rsvp-container" data-aos="fade-up" style="background:#fff; padding:30px; border-radius:30px; width:100%; max-width:380px; box-shadow:0 10px 40px rgba(0,0,0,0.05); border:1px solid #f0f0f0;">
-            <h2 style="font-family:'Dancing Script', cursive; font-size:4rem;">RSVP</h2>
-            <p style="margin-bottom:20px;">Խնդրում ենք հաստատել ձեր մասնակցությունը</p>
+        <div style="background:#fff; padding:45px 25px; border-radius:35px; width:100%; max-width:400px; box-shadow:0 15px 50px rgba(0,0,0,0.06); border:1px solid #f0f0f0;" data-aos="fade-up">
+            <h2 style="font-family:'Dancing Script', cursive; font-size:4.5rem; margin-bottom:10px;">RSVP</h2>
+            <p style="margin-bottom: 30px; font-size: 1.1rem;">Խնդրում ենք հաստատել ձեր մասնակցությունը մինչև 01.10.2026</p>
             <form id="rsvpForm">
-                <input type="text" placeholder="Անուն Ազգանուն" required style="width:100%; padding:15px; margin-bottom:10px; border-radius:15px; border:1px solid #eee; box-sizing:border-box;">
-                <select required style="width:100%; padding:15px; margin-bottom:10px; border-radius:15px; border:1px solid #eee;">
+                <input type="text" placeholder="Անուն Ազգանուն" required style="width:100%; padding:18px; margin-bottom:15px; border-radius:15px; border:1px solid #eee; background:#f9f9f9; box-sizing:border-box;">
+                <select required style="width:100%; padding:18px; margin-bottom:15px; border-radius:15px; border:1px solid #eee; background:#f9f9f9;">
                     <option value="">Կմասնակցե՞ք</option>
-                    <option>Այո, կգամ</option>
-                    <option>Ոչ, չեմ կարող</option>
+                    <option>Այո, սիրով կգամ</option>
+                    <option>Ցավոք, չեմ կարող</option>
                 </select>
-                <div style="text-align:left; margin:10px 0;">Ու՞մ կողմից եք.</div>
-                <div style="display:flex; justify-content:space-around; margin-bottom:15px;">
+                <div style="text-align: left; margin: 10px 0 10px 5px; font-weight: 700;">Ու՞մ կողմից եք.</div>
+                <div style="display:flex; justify-content:space-around; margin-bottom:20px; background:#f9f9f9; padding:15px; border-radius:15px;">
                     <label><input type="radio" name="side" value="groom"> Փեսայի</label>
                     <label><input type="radio" name="side" value="bride"> Հարսի</label>
                 </div>
-                <input type="number" placeholder="Հյուրերի քանակ" style="width:100%; padding:15px; margin-bottom:15px; border-radius:15px; border:1px solid #eee; box-sizing:border-box;">
-                <button type="submit" style="width:100%; padding:18px; background:#000; color:#fff; border:none; border-radius:40px; font-weight:700;">ՈՒՂԱՐԿԵԼ</button>
+                <input type="number" placeholder="Հյուրերի քանակ" style="width:100%; padding:18px; margin-bottom:20px; border-radius:15px; border:1px solid #eee; background:#f9f9f9; box-sizing:border-box;">
+                <button type="submit" style="width:100%; padding:20px; background:#000; color:#fff; border:none; border-radius:50px; font-weight:700; font-size: 1.1rem; cursor: pointer;">ՈՒՂԱՐԿԵԼ</button>
             </form>
         </div>
     </section>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true });
-        
+        AOS.init({ duration: 1200, once: true });
+
         function playM() {
             const t = document.getElementById('track'), i = document.getElementById('m-icon');
             if (t.paused) { t.play(); i.className = 'fas fa-pause'; } 
@@ -114,18 +133,18 @@
         }
 
         window.addEventListener('scroll', () => {
-            const b = document.getElementById('rBox'), p = document.getElementById('pin');
-            const l = document.getElementById('pathLine'), r = b.getBoundingClientRect();
+            const b = document.getElementById('rBox'), p = document.getElementById('pin'), l = document.getElementById('pathLine');
+            const r = b.getBoundingClientRect();
             let s = (window.innerHeight / 2 - r.top) / r.height;
             s = Math.max(0, Math.min(1, s));
-            const len = l.getTotalLength(), pt = l.getPointAtLength(s * len);
-            p.style.left = (pt.x - 15) + 'px'; 
+            const pt = l.getPointAtLength(s * l.getTotalLength());
+            p.style.left = (pt.x - 18) + 'px'; 
             p.style.top = (pt.y - 30) + 'px';
         });
 
         const target = new Date("October 16, 2026 14:00:00").getTime();
         setInterval(() => {
-            const now = new Date().getTime(), d = target - now;
+            const d = target - new Date().getTime();
             document.getElementById("days").innerText = Math.floor(d / 86400000);
             document.getElementById("hours").innerText = Math.floor((d % 86400000) / 3600000);
             document.getElementById("mins").innerText = Math.floor((d % 3600000) / 60000);
